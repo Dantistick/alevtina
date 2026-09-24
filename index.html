@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Квест ❤️</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sound toggle, visible on every stage -->
+  <button id="sound-toggle" class="sound-toggle" aria-label="Включить или выключить музыку">🔇</button>
+
+  <!-- Progress dots -->
+  <div class="progress" id="progress" aria-hidden="true">
+    <span class="dot" data-stage="welcome"></span>
+    <span class="dot" data-stage="video"></span>
+    <span class="dot" data-stage="gift"></span>
+    <span class="dot" data-stage="question"></span>
+  </div>
+
+  <main id="app">
+
+    <!-- 1. WELCOME -->
+    <section class="stage stage--active" id="stage-welcome" data-stage="welcome">
+      <div class="stage__inner">
+        <p class="eyebrow-free small-text fade-up">psst...</p>
+        <h1 class="headline fade-up">У меня для тебя кое-что есть...</h1>
+        <p class="subtext fade-up">Но сначала тебе придётся пройти один маленький квест <span class="heart">❤</span></p>
+        <button class="btn btn--primary btn--glow fade-up" id="btn-start">Начать просмотр</button>
+      </div>
+      <div class="bg-floaters" aria-hidden="true"></div>
+    </section>
+
+    <!-- 2. VIDEO (with floating memory photos around the edges) -->
+    <section class="stage" id="stage-video" data-stage="video">
+      <div class="stage__inner" id="video-intro">
+        <p class="headline headline--sm" id="video-intro-text">Ладно...</p>
+      </div>
+
+      <div class="video__stage hidden" id="video-wrap">
+        <div class="video__photos" id="video-photos" aria-hidden="true"></div>
+        <div class="video__center">
+          <video id="proposal-video" class="video__el" controls playsinline preload="metadata">
+            <source src="assets/video/proposal.mp4" type="video/mp4">
+            Твой браузер не поддерживает видео.
+          </video>
+          <button class="btn btn--primary hidden" id="btn-video-next">У меня есть ещё кое-что...</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GIFT -->
+    <section class="stage" id="stage-gift" data-stage="gift">
+      <div class="stage__inner">
+        <p class="subtext fade-up">Осталось открыть последний подарок.</p>
+        <button class="gift" id="gift-box" aria-label="Открыть подарок">
+          <span class="gift__lid"></span>
+          <span class="gift__box"></span>
+          <span class="gift__glow"></span>
+        </button>
+        <div class="gift__particles" id="gift-particles" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 4. QUESTION -->
+    <section class="stage" id="stage-question" data-stage="question">
+      <div class="stage__inner">
+        <p class="lead-line" id="q-line1">У меня к тебе один вопрос...</p>
+        <p class="lead-line" id="q-line2">И он довольно важный.</p>
+        <h2 class="question hidden" id="q-main">Ты хочешь стать моей девушкой? <span class="heart">❤</span></h2>
+        <div class="question__buttons hidden" id="q-buttons">
+          <button class="btn btn--primary btn--glow" id="btn-yes">Да ❤️</button>
+          <button class="btn btn--no" id="btn-no">Нет</button>
+        </div>
+        <p class="no-caption" id="no-caption" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 5. SUCCESS -->
+    <section class="stage" id="stage-success" data-stage="success">
+      <div class="stage__inner">
+        <h2 class="headline fade-up">Теперь это официально <span class="heart">❤</span></h2>
+        <p class="subtext fade-up">Спасибо, что прошла этот маленький квест.</p>
+        <div class="final-imgwrap fade-up" id="final-imgwrap">
+          <img id="final-img" src="" alt="" class="final-img">
+        </div>
+      </div>
+      <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+    </section>
+
+  </main>
+
+  <audio id="bg-music" loop preload="none">
+    <source src="assets/audio/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
